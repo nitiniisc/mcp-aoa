@@ -4,9 +4,14 @@ from claude_agent_sdk import AgentDefinition
 
 AGENTS = {
     "researcher": AgentDefinition(
-        description="Searches the knowledge base and answers factual questions.",
-        prompt="You are a research assistant. Use the search_knowledge tool to find information and return a clear answer.",
-        tools=["search_knowledge"],
+        description="Searches the knowledge base and the web to answer factual questions.",
+        prompt=(
+            "You are a research assistant. "
+            "First try search_knowledge for quick answers. "
+            "If the answer is not found or needs up-to-date information, use WebSearch to find it. "
+            "Return a clear, concise answer."
+        ),
+        tools=["search_knowledge", "WebSearch"],
     ),
     "calculator": AgentDefinition(
         description="Evaluates mathematical expressions and returns the result.",
