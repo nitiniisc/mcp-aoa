@@ -1,0 +1,58 @@
+% ─────────────────────────────────────────────────────────────
+%  Paste this block inside your \section{Projects} in Overleaf
+%  Adjust the \resumeProjectHeading / \cvitem macros to match
+%  whatever style your CV template uses.
+% ─────────────────────────────────────────────────────────────
+
+% ── Option A: bullet-list style (common in Jake's / Awesome-CV) ──
+\resumeProjectHeading
+  {\textbf{MCP-based Agent of Agents (AoA)} $|$
+   \emph{Claude Agent SDK, MCP, Python, LLM Orchestration}}
+  {2026}
+\resumeItemListStart
+  \resumeItem{
+    Designed and implemented an \textbf{Agent of Agents (AoA)} architecture
+    using the \textbf{Claude Agent SDK} (claude-opus-4-6), where an
+    \textbf{orchestrator LLM} dynamically delegates tasks to specialist
+    subagents — researcher, calculator, and summarizer.
+  }
+  \resumeItem{
+    Exposed custom domain tools (\texttt{search\_knowledge},
+    \texttt{run\_calculation}, \texttt{summarize\_text}) via an in-process
+    \textbf{MCP (Model Context Protocol)} server, enabling modular
+    \textbf{tool use} and clean separation of agent capabilities.
+  }
+  \resumeItem{
+    Integrated \textbf{real-time web search} (WebSearch tool) into the
+    researcher subagent as a fallback, combining retrieval-augmented
+    generation (RAG) with live internet data for up-to-date responses.
+  }
+  \resumeItem{
+    Implemented \textbf{streaming token output} via
+    \texttt{ClaudeSDKClient.receive\_response()}, supporting long-horizon
+    agentic tasks with \textbf{multi-turn tool-use loops} and configurable
+    \texttt{max\_turns} safety limits.
+  }
+  \resumeItem{
+    Hosted on GitHub (\href{https://github.com/nitiniisc/mcp-aoa}
+    {\texttt{nitiniisc/mcp-aoa}});
+    extensible design allows adding new subagents or connecting external
+    MCP servers (e.g., PostgreSQL, Playwright) with minimal code changes.
+  }
+\resumeItemListEnd
+
+
+% ── Option B: single paragraph style (for compact / academic CVs) ──
+%
+% \cvitem{MCP-based Agent of Agents (AoA) \hfill 2026}{
+%   Built a multi-agent LLM system using the \textbf{Claude Agent SDK}
+%   (claude-opus-4-6) following the \textbf{Agent of Agents (AoA)} pattern.
+%   An orchestrator agent routes tasks to specialist subagents (researcher,
+%   calculator, summarizer) each scoped to custom \textbf{MCP
+%   (Model Context Protocol)} tools. The researcher subagent combines a
+%   local knowledge base with live \textbf{WebSearch} for
+%   retrieval-augmented answering. Implemented streaming output,
+%   multi-turn agentic loops, and a modular architecture extensible to
+%   external MCP servers (PostgreSQL, Playwright, etc.).
+%   \href{https://github.com/nitiniisc/mcp-aoa}{github.com/nitiniisc/mcp-aoa}
+% }
